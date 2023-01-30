@@ -1,0 +1,151 @@
+{
+  "main": {
+    "id": "7481e527a3671391",
+    "type": "split",
+    "children": [
+      {
+        "id": "b3859189762da370",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8462f0386ccfa5ea",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Readme.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "0b2a68a8fa28e1d7",
+    "type": "split",
+    "children": [
+      {
+        "id": "b66a9aee643f6442",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8436ac07c3120b29",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d1613c4ac4d99eb3",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "386e09cf9d3dbbfb",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 200
+  },
+  "right": {
+    "id": "9ff853ac6544b459",
+    "type": "split",
+    "children": [
+      {
+        "id": "b698fa76334fc1ff",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "602e6d565b8e9c92",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Readme.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "0a918492c7c658aa",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Readme.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5b5243a14fe0f986",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "4f2a97bbae7e63eb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Readme.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "8462f0386ccfa5ea",
+  "lastOpenFiles": []
+}
