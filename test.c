@@ -1,11 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/02/03 12:38:30 by mghalmi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <mlx.h>
 
-int main()
+int main(void)
 {
-    void *mlx_ptr;
-    void *win_ptr;
+	void	*mlx;
 
-    mlx_ptr = mlx_init();
-    win_ptr = mlx_new_window(mlx_ptr, 500, 500,"mlx 42");
-    mlx_loop(win_ptr);
+	mlx = mlx_init();
+	mlx_new_window(mlx, 500, 500, "mohcine");
 }
