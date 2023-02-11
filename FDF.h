@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/11 16:00:57 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/11 18:28:43 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,19 @@
 # include "get_next_line/get_next_line.h"
 # include "libft/libft.h"
 
-#endif
+int	**matrix(char *file);
+int	get_width(char *file);
+int	get_height(char *file);
 
-// create function to read file
+typedef struct FDF
+{
+    void    *mlx_ptr;
+    void    *mlx_win;
+    int     **matrix;
+    int     x;
+    int     y;
+    
+}   fdf;
+
+
+#endif
