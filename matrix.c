@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/11 17:32:01 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/11 18:02:23 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,7 @@ int get_width(char *file)
     fd = open(file, O_RDONLY);
     width = 0;
     line = get_next_line(fd);
-    while(line[width])
-        width++;
+    width = count_words(line, ' ') - 1;
     free(line);
     close(fd);
     return width;
@@ -73,7 +72,7 @@ int **matrix(char *file)
     
     matrix = (int **)malloc((get_height(file) + 1) * sizeof(int *));
     line_count = 0;
-    while (line_count <= get_height(file))
+    while (line_count < get_height(file))
         matrix[line_count++] = (int *)malloc((get_width(file) + 1) * sizeof(int));
     fd = open(file, O_RDONLY);
     line_count = 0;
@@ -106,7 +105,10 @@ int main(int argc, char **argv)
         {
             j = 0;
             while (j < get_width(argv[1]))
-                printf("%3d", z_matrix[i][j++]);
+            {
+                printf("%3d", z_matrix[i][j]);
+                j++;
+            }
             printf("\n");
             i++;
         }
