@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FDF.h                                              :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/11 16:00:57 by mghalmi          ###   ########.fr       */
+/*   Created: 2022/10/06 11:41:18 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/02/11 16:22:31 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#ifndef LIBFT_H
+# define LIBFT_H
 
 # include <stdio.h>
-# include <mlx.h>
-# include <fcntl.h>
-# include "get_next_line/get_next_line.h"
-# include "libft/libft.h"
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
+
+int		ft_atoi(const char *str);
+char	**ft_split(char const *s, char c);
 
 #endif
-
-// create function to read file
