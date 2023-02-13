@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/11 18:28:43 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/13 16:22:01 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <mlx.h>
 # include <fcntl.h>
+# include <math.h>
 # include "get_next_line/get_next_line.h"
 # include "libft/libft.h"
 
@@ -27,10 +28,10 @@ typedef struct FDF
 {
     void    *mlx_ptr;
     void    *mlx_win;
-    int     **matrix;
+    //int     **matrix;
     int     x;
     int     y;
-    
+
 }   fdf;
 
 
