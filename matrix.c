@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/11 18:23:48 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/14 10:37:18 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	get_height(char *file)
 	char	*line;
 
 	fd = open(file, O_RDONLY);
+	if (fd <= 0)
+		perror("open");
 	height = 0;
 	line = get_next_line(fd);
 	while (line)
@@ -39,6 +41,8 @@ int	get_width(char *file)
 	char	*line;
 
 	fd = open(file, O_RDONLY);
+	if (fd <= 0)
+		perror("open");
 	width = 0;
 	line = get_next_line(fd);
 	width = count_words(line, ' ') - 1;
