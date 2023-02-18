@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/14 16:39:56 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/18 17:03:20 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,19 @@ int	**matrix(char *file);
 int	get_width(char *file);
 int	get_height(char *file);
 
-typedef struct FDF
+typedef struct MLX
 {
-    void    *mlx_ptr;
-    void    *mlx_win;
-    int     **matrix;
+    void    *ptr;
+    void    *win;
+    void    *image;
     int     color;
     int     x;
     int     y;
-}   fdf;
-
+    void    *addr;
+    int     bits_per_pixel;
+    int     size_line;
+    int     endian;
+    char    *buffer;
+}   mlx;
 
 #endif
