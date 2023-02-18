@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/18 17:33:47 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/18 18:11:34 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,14 @@
 float	val_abs(float x)
 {
 	return	((x > 0)? x : -x);
+}
+
+void	my_mlx_pixel_put(mlx *data, int x, int y, int color)
+{
+	char	*dst;
+
+	dst = data->addr + (y * data->size_line + x * (data->bits_per_pixel / 8));
+	*(unsigned int*)dst = color;
 }
 
 void	line(float x1, float y1, float x2, float y2, mlx *val)
@@ -38,7 +46,8 @@ void	line(float x1, float y1, float x2, float y2, mlx *val)
 	val->color = 0xffffff;
 	while ((int)(x2 - x1) || (int)(y2 - y1))
 	{
-		val->buffer[((int)y1 * val->size_line) + (int)x1 * (val->bits_per_pixel / 8)] = val->color;
+		// val->buffer[((int)y1 * val->size_line) + (int)x1 * 4] = val->color;
+		my_mlx_pixel_put(val, x1, y1, val->color);
 		// mlx_pixel_put(val->ptr, val->win, x1, y1, 0xffffff);
 		x1 += x_step;
 		y1 += y_step;
@@ -75,7 +84,7 @@ int	main(int argc , char **argv)
 		}
 		x++;
 	}
-	mlx_put_image_to_window(val->ptr, val->win, val->image, 0, 0);
+	mlx_put_image_to_window(val->ptr, val->win, val->image, 100, 100);
 	mlx_loop(val->ptr);
 	return 0;
 }
