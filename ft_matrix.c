@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   matrix.c                                           :+:      :+:    :+:   */
+/*   ft_matrix.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/14 10:37:18 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/20 17:10:09 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	get_width(char *file)
 		perror("open");
 	width = 0;
 	line = get_next_line(fd);
-	width = count_words(line, ' ') - 1;
+	width = count_words(line, ' ');
 	free(line);
 	close(fd);
 	return (width);
@@ -67,17 +67,17 @@ void	fill_matrix(int *matrix_line, char *line)
 	free(nbrs[col]);
 }
 
-int	**matrix(char *file)
+int	**ft_matrix(char *file)
 {
 	int		**matrix;
 	int		fd;
 	int		line_count;
 	char	*line;
 
-	matrix = (int **)malloc((get_height(file) + 1) * sizeof(int *));
+	matrix = (int **)malloc(get_height(file) * sizeof(int *));
 	line_count = 0;
 	while (line_count < get_height(file))
-		matrix[line_count++] = (int *)malloc((get_width(file) + 1)
+		matrix[line_count++] = (int *)malloc(get_width(file)
 				* sizeof(int));
 	fd = open(file, O_RDONLY);
 	line_count = 0;
@@ -91,6 +91,30 @@ int	**matrix(char *file)
 	}
 	free(line);
 	close(fd);
-	matrix[line_count] = NULL;
+	matrix[line_count] = 0;
 	return (matrix);
 }
+
+
+// int main(int argc, char **argv)
+// {
+// 	int i;
+// 	int j;
+// 	int **matrix;
+
+// 	i = 0;
+// 	j = 0;
+// 	matrix = ft_matrix(argv[1]);
+// 	while (i < get_height(argv[1]))
+// 	{
+// 		j = 0;
+// 		while(j < get_width(argv[1]))
+// 		{
+// 			printf("%3d", matrix[i][j]);
+// 			j++;
+// 		}
+// 		printf("\n");
+// 		i++;
+// 	}
+// 	return 0;
+// }

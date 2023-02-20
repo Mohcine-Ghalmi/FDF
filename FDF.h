@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/18 18:09:03 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/19 15:47:45 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,23 +20,29 @@
 # include "get_next_line/get_next_line.h"
 # include "libft/libft.h"
 
-int	**matrix(char *file);
+int	**ft_matrix(char *file);
 int	get_width(char *file);
 int	get_height(char *file);
 
-typedef struct MLX
+typedef struct FDF
 {
     void    *ptr;
     void    *win;
-    void    *image;
-    int     color;
     int     x;
     int     y;
-    void    *addr;
+}   fdf;
+
+typedef struct image
+{
+    int     *image;
     int     bits_per_pixel;
     int     size_line;
     int     endian;
     char    *buffer;
-}   mlx;
+    int     color;
+    unsigned int *pixel_ptr;
+    int     **matrix;
+}       img;
+
 
 #endif
