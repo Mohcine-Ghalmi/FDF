@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/20 17:10:09 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/20 19:12:19 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,26 +95,23 @@ int	**ft_matrix(char *file)
 	return (matrix);
 }
 
-
 // int main(int argc, char **argv)
 // {
-// 	int i;
-// 	int j;
+// 	int x;
+// 	int y;
 // 	int **matrix;
 
-// 	i = 0;
-// 	j = 0;
 // 	matrix = ft_matrix(argv[1]);
-// 	while (i < get_height(argv[1]))
+// 	x = 0;
+// 	while (x < get_height(argv[1]))
 // 	{
-// 		j = 0;
-// 		while(j < get_width(argv[1]))
+// 		y = 0;
+// 		while (y < get_width(argv[1]) - 1)
 // 		{
-// 			printf("%3d", matrix[i][j]);
-// 			j++;
+// 			printf("%3d", matrix[x][y]);
+// 			y++;
 // 		}
 // 		printf("\n");
-// 		i++;
+// 		x++;
 // 	}
-// 	return 0;
 // }
