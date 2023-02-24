@@ -6,29 +6,33 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 08:51:03 by mghalmi           #+#    #+#             */
-/*   Updated: 2022/10/29 01:00:44 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/22 16:01:08 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(char const *s, char c)
+int	count_words(char const *line, char c)
 {
+	int	width;
 	int	i;
 	int	word;
 
+	width = 0;
+	word = 1;
 	i = 0;
-	word = 0;
-	while (s[i])
+	while (line[i])
 	{
-		while (s[i] && s[i] == c)
-			i++;
-		if (s[i] != c && s[i])
-			word++;
-		while (s[i] != c && s[i])
-			i++;
+		if (line[i] == c)
+			word = 1;
+		if (line[i] != c && line[i] != '\n' && word)
+		{
+			width++;
+			word = 0;
+		}
+		i++;
 	}
-	return (word);
+	return (width);
 }
 
 int	word_size(char const *s, char c)

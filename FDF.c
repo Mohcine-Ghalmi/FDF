@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/20 19:04:12 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/22 13:02:55 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,25 @@ void	check_matrix(int x, int y, img *image, int height, int width)
 		image->color = 0xffffff;
 }
 
+// void	isomet(float x, float y, double theta, img *image)
+// {
+// 	val->x = (val->x - val->y) * cos(theta);
+// 	val->y = (val->x + image->matrix[(int)val->y][(int)val->x]) * sin(theta) - val->y; // z is the hight of the point
+// }
+
 void	line(float x1, float y1, float x2, float y2, img *image)
 {
 	float	x_step;
 	float	y_step;
 	float	max;
-	// image->color = (image->matrix[(int)y1][(int)x1] > 0) ? 0xe80c0c : 0xffffff;
+	// isomet(x1, y1, 0.8);
+	// isomet(x2, y2, 0.8);
 	/*----------zoom--------*/
 	x1 = x1 * 30;
 	y1 = y1 * 30;
 	x2 = x2 * 30;
 	y2 = y2 * 30;
 	/*-------------------------*/
-	// image->color = 0xff0000;
 	x_step = x2 - x1;
 	y_step = y2 - y1;
 	max = (abs((int)x_step) > abs((int)y_step))?abs((int)x_step): abs((int)y_step);

@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 11:41:18 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/11 17:53:12 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/24 15:55:13 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,13 @@
 # include <stdlib.h>
 # include <string.h>
 # include <unistd.h>
+# include "../get_next_line/get_next_line.h"
 
 int		ft_atoi(const char *str);
 char	**ft_split(char const *s, char c);
 int	    count_words(char const *s, char c);
+int	    ft_isprint(int c);
+int	    ft_toupper(int c);
+int     ft_atoi_base(char *color);
 
 #endif

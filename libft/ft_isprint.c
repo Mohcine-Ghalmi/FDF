@@ -1,35 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FDF.h                                              :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/24 11:27:42 by mghalmi          ###   ########.fr       */
+/*   Created: 2023/02/24 11:24:50 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/02/24 14:06:14 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FDF_H
-# define FDF_H
+#include "libft.h"
 
-# include <stdio.h>
-# include <mlx.h>
-# include <fcntl.h>
-# include <math.h>
-# include <string.h>
-# include <ctype.h>
-# include "get_next_line/get_next_line.h"
-# include "libft/libft.h"
-
-typedef struct FDF
+int	ft_isprint(int c)
 {
-	float	x;
-	float	y;
-	float	z;
-	int color;
-	int	width;
-	int height;
-}		t_fdf;	
-
-#endif
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
+}
