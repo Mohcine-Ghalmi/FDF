@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/24 15:57:30 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/24 16:40:03 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	get_width(char *file)
 	return (width);
 }
 
-void	fill_matrix(t_fdf **matrix_line, int line_count, char *line)
+void	fill_matrix(t_point **matrix_line, int line_count, char *line)
 {
 	char	**nbrs;
 	char	*find;
@@ -78,20 +78,20 @@ void	fill_matrix(t_fdf **matrix_line, int line_count, char *line)
 	free(nbrs[col]);
 }
 
-t_fdf	**ft_matrix(char *file)
+t_point	**ft_matrix(char *file)
 {
-	t_fdf		**matrix;
+	t_point		**matrix;
 	int		fd;
 	int		line_count;
 	char	*line;
 
 
-	matrix = (t_fdf **)malloc(get_height(file) * sizeof(t_fdf *));
+	matrix = (t_point **)malloc(get_height(file) * sizeof(t_point *));
 	line_count = 0;
 	while (line_count < get_height(file))
 	{
-		matrix[line_count] = (t_fdf *)malloc(get_width(file)
-				* sizeof(t_fdf));
+		matrix[line_count] = (t_point *)malloc(get_width(file)
+				* sizeof(t_point));
 		line_count++;
 	}
 	fd = open(file, O_RDONLY);
@@ -108,3 +108,4 @@ t_fdf	**ft_matrix(char *file)
 	close(fd);
 	return (matrix);
 }
+

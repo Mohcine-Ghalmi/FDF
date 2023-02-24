@@ -6,19 +6,11 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/22 13:02:55 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/24 17:02:13 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FDF.h"
-
-void	check_matrix(int x, int y, img *image, int height, int width)
-{
-	if (x < width && y < height)
-		image->color = (image->matrix[y][x] != 0) ? 0xe80c0c : 0xffffff;
-	else 
-		image->color = 0xffffff;
-}
 
 // void	isomet(float x, float y, double theta, img *image)
 // {
@@ -26,7 +18,7 @@ void	check_matrix(int x, int y, img *image, int height, int width)
 // 	val->y = (val->x + image->matrix[(int)val->y][(int)val->x]) * sin(theta) - val->y; // z is the hight of the point
 // }
 
-void	line(float x1, float y1, float x2, float y2, img *image)
+void	line(float x1, float y1, float x2, float y2, t_fdf *fdf_data, t_point **point)
 {
 	float	x_step;
 	float	y_step;
@@ -46,8 +38,8 @@ void	line(float x1, float y1, float x2, float y2, img *image)
 	y_step /= max;
 	while ((int)(x2 - x1) || (int)(y2 - y1))
 	{
-		image->pixel_ptr = (unsigned int *)&image->buffer[(int)(y1 * image->size_line) + (int)(x1 * (image->bits_per_pixel / 8))];
-		*image->pixel_ptr = image->color;
+		fdf_data->pixel_ptr = (unsigned int *)&fdf_data->buffer[(int)(y1 * fdf_data->size_line) + (int)(x1 * (fdf_data->bits_per_pixel / 8))];
+		*fdf_data->pixel_ptr = point[(int)x1][(int)y1].color;
 		x1 += x_step;
 		y1 += y_step;
 	}
@@ -55,23 +47,20 @@ void	line(float x1, float y1, float x2, float y2, img *image)
 
 int	main(int argc , char **argv)
 {
-	fdf	*val;
-	img *image;
-	float x;
-	float y;
+	t_fdf	*fdf_data;
+	t_point	**point;
 	
+	int x;
+	int y;
+	(void)argv;
 	if (argc < 2)
 	{
 		write(1, "Usage: ./fdf [map_file]\n", 24);
 		exit(1);
 	}
-	val = (fdf *)malloc(sizeof(fdf));
-	image = (img *)malloc(sizeof(img));
-	val->ptr = mlx_init();
-	val->win = mlx_new_window(val->ptr, 900, 900, "FDF");
-	image->image = mlx_new_image(val->ptr, 900, 900);
-	image->buffer = mlx_get_data_addr(image->image, &image->bits_per_pixel, &image->size_line, &image->endian);
-	image->matrix = ft_matrix(argv[1]);
+	fdf_data = (t_fdf *)malloc(sizeof(t_fdf));
+	ft_mlx_give(fdf_data);
+	point = ft_matrix(argv[1]);
 	x = 0;
 	while (x <= get_width(argv[1]))
 	{
@@ -79,20 +68,15 @@ int	main(int argc , char **argv)
 		while (y <= get_height(argv[1]))
 		{
 			if (x < get_width(argv[1]))	
-			{
-				check_matrix(x, y, image, get_height(argv[1]), get_width(argv[1]));
-				line(x, y, x + 1, y, image);
-			}
+				line(point[x][y].x, point[x][y].y, point[x][y].x + 1, point[x][y].y, fdf_data, point);
 			if (y < get_height(argv[1]))
-			{
-				check_matrix(x, y, image, get_height(argv[1]), get_width(argv[1]));
-				line(x, y, x , y + 1, image);
-			}
+				line(point[x][y].x, point[x][y].y, point[x][y].x , point[x][y].y + 1, fdf_data, point);
 			y++;
 		}
 		x++;
 	}
-	mlx_put_image_to_window(val->ptr, val->win, image->image, 100, 100);
-	mlx_loop(val->ptr);
+	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 0, 0);
+	mlx_loop(fdf_data->mlx_ptr);
 	return 0;
 }
+
