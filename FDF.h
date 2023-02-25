@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/24 17:00:29 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/25 10:52:27 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ typedef struct FDF
 	void	*mlx_image;
 	int	bits_per_pixel;
 	int	size_line;
-	unsigned int pixel_ptr;
 }		t_fdf;	
 
 t_point	**ft_matrix(char *file);

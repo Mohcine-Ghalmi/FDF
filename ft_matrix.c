@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/24 16:40:03 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/25 13:49:54 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	fill_matrix(t_point **matrix_line, int line_count, char *line)
 		if (find)
 			matrix_line[line_count][col].color = ft_atoi_base(find);
 		else
-			matrix_line[line_count][col].color = 0;
+			matrix_line[line_count][col].color = 0xffffff;
 		free(nbrs[col]);
 		col++;
 	}
@@ -109,3 +109,21 @@ t_point	**ft_matrix(char *file)
 	return (matrix);
 }
 
+// int main(int argc, char **argv)
+// {
+// 	int x;
+// 	int y;
+// 	int width = get_width(argv[1]);
+// 	t_point **point;
+
+// 	printf("height = %d width = %d\n", get_height(argv[1]), get_width(argv[1]));
+// 	point = ft_matrix(argv[1]);
+// 	x = 0;
+	
+// 		y = 0;
+// 		while (y < width)
+// 		{
+// 			printf("x=%3f y=%3f z=%3f  color=%3d\n", point[x][y].x, point[x][y].y, point[x][y].z, point[x][y].color);
+// 			y++;
+// 		}	
+// }
