@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/26 17:32:27 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/26 17:41:06 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,25 +27,15 @@
 # define RIGHT	65363
 # define DOWN	65364
 
-# define NUMPAD_1	65436
-# define NUMPAD_2	65433
-# define NUMPAD_3	65435
-# define NUMPAD_4	65430
-# define NUMPAD_5	65437
-# define NUMPAD_6	65432
-# define NUMPAD_7	65429
-# define NUMPAD_8	65431
-# define NUMPAD_9	65434
-
-# define NUM_1	49
-# define NUM_2	50
-# define NUM_3	51
-# define NUM_4	52
-# define NUM_5	53
-# define NUM_6	54
-# define NUM_7	55
-# define NUM_8	56
-# define NUM_9	57
+# define PAD_1	65436
+# define PAD_2	65433
+# define PAD_3	65435
+# define PAD_4	65430
+# define PAD_5	65437
+# define PAD_6	65432
+# define PAD_7	65429
+# define PAD_8	65431
+# define PAD_9	65434
 
 # define PLUS	61
 # define MINUS	45
