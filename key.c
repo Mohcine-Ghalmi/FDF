@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 16:21:48 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/26 15:50:13 by mghalmi          ###   ########.fr       */
+/*   Created: 2023/02/26 16:41:39 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/02/26 16:42:10 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include "FDF.h"
+#include "FDF.h"
 
-void	ft_mlx_give(t_fdf *fdf_data)
+int key(int code, t_fdf *fdf)
 {
-	fdf_data->mlx_ptr = mlx_init();
-	fdf_data->mlx_win = mlx_new_window(fdf_data->mlx_ptr, 900, 900, "FDF");
-	fdf_data->mlx_image = mlx_new_image(fdf_data->mlx_ptr, 900, 900);
-	fdf_data->buffer = mlx_get_data_addr(fdf_data->mlx_image, &fdf_data->bits_per_pixel, &fdf_data->size_line, &fdf_data->endian);
+    
 }

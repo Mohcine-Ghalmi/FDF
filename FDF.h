@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/25 10:52:27 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/26 16:42:25 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,10 @@ t_point	**ft_matrix(char *file);
 int		get_width(char *file);
 int		get_height(char *file);
 void	ft_mlx_give(t_fdf *fdf_data);
+void	my_mlx_pixel_put(t_fdf *fdf_data, t_point pt);
+void	line(t_point A, t_point B, t_fdf *fdf_data);
+void	draw_map(t_point **point, t_fdf *fdf_data);
+void	isomet(t_point *A, double theta);
+int key(int code, t_fdf *fdf);
 
 #endif
