@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:00:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 16:50:45 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:38:04 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ void	my_mlx_pixel_put(t_fdf *fdf_data, t_point pt)
 {
 	char	*dst;
 	
-	dst = fdf_data->buffer + (((int)pt.x + fdf_data->x_move ) * fdf_data->size_line + ((int)pt.y + fdf_data->y_move) * (fdf_data->bits_per_pixel  / 8));
-	*(unsigned int *)dst = fdf_data->color;
+	pt.x += fdf_data->x_move;
+	pt.y += fdf_data->y_move;
+	if ((pt.x > 0 && pt.x < fdf_data->win_height) && (pt.y > 0 && pt.y < fdf_data->win_width))
+	{
+		dst = fdf_data->buffer + (((int)pt.x ) * fdf_data->size_line + ((int)pt.y ) * (fdf_data->bits_per_pixel  / 8));
+		*(unsigned int *)dst = fdf_data->color;
+	}
 }
 
 void	line(t_point A, t_point B, t_fdf *fdf_data)
@@ -42,10 +47,10 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 		max = abs((int)y_step);
 	x_step /= max;
 	y_step /= max;
-	if (A.z == !0)
+	if (A.z != 0)
 		fdf_data->color = A.color;
 	else
-		fdf_data->color = B.color;
+		fdf_data->color = A.color;
 	while ((int)max)
 	{
 		my_mlx_pixel_put(fdf_data, A);
@@ -62,6 +67,7 @@ void	draw_map(t_fdf *fdf_data)
 	int y;
 	
 	point = ft_matrix(fdf_data->file);
+	ft_menu(fdf_data);
 	x = 0;
 	while (x < fdf_data->width)
 	{
@@ -76,5 +82,5 @@ void	draw_map(t_fdf *fdf_data)
 		}
 		x++;
 	}
-	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 0, 0);
+	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 260, 0);
 }

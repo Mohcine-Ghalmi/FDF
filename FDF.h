@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 16:53:18 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:35:38 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,6 @@ int 	key(int code, t_fdf *fdf);
 void    win(t_fdf *data_fdf);
 void	zoom(t_fdf *data_fdf);
 void    defaults(t_fdf *fdf_data);
+void	ft_menu(t_fdf *fdf_data);
 
 #endif

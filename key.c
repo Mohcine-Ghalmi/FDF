@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:41:39 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 16:51:31 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:06:17 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,6 @@ int key(int code, t_fdf *data_fdf)
         else
             data_fdf->izo = 1;
     }
-    if (code == KEY_C)
-        data_fdf->color += 0.5;
     if (code == PAD_7)
         data_fdf->theta += 0.05;
     if (code == PAD_9)

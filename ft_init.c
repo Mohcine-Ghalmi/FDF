@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:21:48 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 16:53:10 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:36:56 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,14 @@
 
 void    defaults(t_fdf *fdf_data)
 {
-    fdf_data->win_height = 900;
-    fdf_data->win_width = 900;
+    fdf_data->win_height = 1300;
+    fdf_data->win_width = 2000;
 	fdf_data->theta = 0.5;
 	fdf_data->izo = 1;
-	fdf_data->x_move = 450;
-	fdf_data->y_move = 450;
-	fdf_data->z_move = 0;
-	fdf_data->zoom = 20;
+	fdf_data->x_move = fdf_data->win_height / 2;
+	fdf_data->y_move = fdf_data->win_width / 2;
+	fdf_data->z_move = 1;
+	fdf_data->zoom = 15;
 }
 
 void	ft_mlx_give(t_fdf *fdf_data)
