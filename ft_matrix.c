@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/26 14:10:07 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 16:08:13 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ void	fill_matrix(t_point **matrix_line, int line_count, char *line)
 		else
 		{
 			if (matrix_line[line_count][col].z > 0)
-				matrix_line[line_count][col].color = 0xff0000;
+				matrix_line[line_count][col].color = 0x808080;
 			else
 				matrix_line[line_count][col].color = 0xffffff;		
 		}

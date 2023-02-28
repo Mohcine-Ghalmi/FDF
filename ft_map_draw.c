@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:00:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/26 16:37:33 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 16:50:45 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	my_mlx_pixel_put(t_fdf *fdf_data, t_point pt)
 {
 	char	*dst;
-
-	dst = fdf_data->buffer + (((int)pt.x + 250 ) * fdf_data->size_line + ((int)pt.y  + 250) * (fdf_data->bits_per_pixel  / 8));
-	*(unsigned int *)dst = pt.color;
+	
+	dst = fdf_data->buffer + (((int)pt.x + fdf_data->x_move ) * fdf_data->size_line + ((int)pt.y + fdf_data->y_move) * (fdf_data->bits_per_pixel  / 8));
+	*(unsigned int *)dst = fdf_data->color;
 }
 
 void	line(t_point A, t_point B, t_fdf *fdf_data)
@@ -26,19 +26,26 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 	float	y_step;
 	float	max;
 	
-	isomet(&A, 0.5);
-	isomet(&B, 0.5);
+	isomet(&A, fdf_data);
+	isomet(&B, fdf_data);
 	/*----------zoom--------*/
-	A.x = A.x * 15;
-	A.y = A.y * 15;
-	B.x = B.x * 15;
-	B.y = B.y * 15;
+	A.x = A.x * fdf_data->zoom;
+	A.y = A.y * fdf_data->zoom;
+	B.x = B.x * fdf_data->zoom;
+	B.y = B.y * fdf_data->zoom;
 	/*-------------------------*/
 	x_step = B.x - A.x;
 	y_step = B.y - A.y;
-	max = (abs((int)x_step) > abs((int)y_step))?abs((int)x_step): abs((int)y_step);
+	if (abs((int)x_step) > abs((int)y_step))
+		max = abs((int)x_step);
+	else
+		max = abs((int)y_step);
 	x_step /= max;
 	y_step /= max;
+	if (A.z == !0)
+		fdf_data->color = A.color;
+	else
+		fdf_data->color = B.color;
 	while ((int)max)
 	{
 		my_mlx_pixel_put(fdf_data, A);
@@ -48,11 +55,13 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 	}
 }
 
-void	draw_map(t_point **point, t_fdf *fdf_data)
+void	draw_map(t_fdf *fdf_data)
 {
+	t_point	**point;
 	int x;
 	int y;
 	
+	point = ft_matrix(fdf_data->file);
 	x = 0;
 	while (x < fdf_data->width)
 	{
@@ -67,4 +76,5 @@ void	draw_map(t_point **point, t_fdf *fdf_data)
 		}
 		x++;
 	}
+	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 0, 0);
 }

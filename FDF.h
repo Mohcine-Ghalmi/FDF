@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/26 17:41:06 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 16:53:18 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,39 +22,29 @@
 # include "get_next_line/get_next_line.h"
 # include "libft/libft.h"
 
-# define LEFT	65361
-# define UP		65362
-# define RIGHT	65363
-# define DOWN	65364
+# define LEFT	123
+# define UP		126
+# define RIGHT	124
+# define DOWN	125
 
-# define PAD_1	65436
-# define PAD_2	65433
-# define PAD_3	65435
-# define PAD_4	65430
-# define PAD_5	65437
-# define PAD_6	65432
-# define PAD_7	65429
-# define PAD_8	65431
-# define PAD_9	65434
+# define PAD_1	83
+# define PAD_2	84
+# define PAD_3	85
+# define PAD_4	86
+# define PAD_5	87
+# define PAD_6	88
+# define PAD_7	89
+# define PAD_8	91
+# define PAD_9	92
 
-# define PLUS	61
-# define MINUS	45
-# define SPACE	32
+# define PLUS	69
+# define MINUS	78
+# define SPACE	49
 
-# define Z		122
-# define X		120
-# define P		112
-# define I		105
-# define O		111
-# define L		108
-# define R		114
-# define A		97
-# define S		115
-# define D		100
-# define Q		113
-# define W		119
-# define E		101
-# define ESC    65307
+# define ESC    53
+
+# define KEY_Z 6
+# define KEY_C 8
 
 typedef struct point
 {
@@ -67,9 +57,15 @@ typedef struct point
 
 typedef struct FDF
 {
-	float	x;
-	float	y;
-	float	z;
+	int	x_move;
+	int	y_move;
+	int	z_move;
+	int zoom;
+	int izo;
+	int win_height;
+	int win_width;
+	float	theta;
+	char *file;
 	int color;
 	int	width;
 	int height;
@@ -88,8 +84,11 @@ int		get_height(char *file);
 void	ft_mlx_give(t_fdf *fdf_data);
 void	my_mlx_pixel_put(t_fdf *fdf_data, t_point pt);
 void	line(t_point A, t_point B, t_fdf *fdf_data);
-void	draw_map(t_point **point, t_fdf *fdf_data);
-void	isomet(t_point *A, double theta);
-int key(int code, t_fdf *fdf);
+void	draw_map(t_fdf *fdf_data);
+void	isomet(t_point *A, t_fdf *data_fdf);
+int 	key(int code, t_fdf *fdf);
+void    win(t_fdf *data_fdf);
+void	zoom(t_fdf *data_fdf);
+void    defaults(t_fdf *fdf_data);
 
 #endif
