@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 19:43:18 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 20:00:45 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	isomet(t_point *A,t_fdf *fdf_data)
 {
 	if (fdf_data->izo == 1)
 	{
-		A->z += fdf_data->z_move;
+		A->z *= fdf_data->z_move;
 		A->y = (A->y - A->x) * cos(fdf_data->theta);
 		A->x = (A->y + A->x) * sin(fdf_data->theta) - A->z;
 	}
@@ -40,6 +40,5 @@ int	main(int argc , char **argv)
 	draw_map(fdf_data);
 	mlx_key_hook(fdf_data->mlx_win, &key, fdf_data);
 	mlx_loop(fdf_data->mlx_ptr);
-	return 0;
+	return (0);
 }
-

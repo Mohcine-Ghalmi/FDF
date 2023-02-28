@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:00:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 19:38:04 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 20:09:25 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,11 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 		max = abs((int)y_step);
 	x_step /= max;
 	y_step /= max;
-	if (A.z != 0)
+	if (A.z == 0)
 		fdf_data->color = A.color;
 	else
-		fdf_data->color = A.color;
+		fdf_data->color = B.color;
+
 	while ((int)max)
 	{
 		my_mlx_pixel_put(fdf_data, A);

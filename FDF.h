@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 19:35:38 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/02/28 20:05:36 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ typedef struct FDF
 {
 	int	x_move;
 	int	y_move;
-	int	z_move;
+	float	z_move;
 	int zoom;
 	int izo;
 	int win_height;
