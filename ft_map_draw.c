@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:00:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 20:09:25 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/01 17:57:09 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ void	my_mlx_pixel_put(t_fdf *fdf_data, t_point pt)
 	}
 }
 
+void	isomet(t_point *A,t_fdf *fdf_data)
+{
+	if (fdf_data->izo == 1)
+	{
+		A->z *= fdf_data->z_move;
+		A->y = (A->y - A->x) * cos(fdf_data->theta);
+		A->x = (A->y + A->x) * sin(fdf_data->theta) - A->z;
+	}
+}
+
 void	line(t_point A, t_point B, t_fdf *fdf_data)
 {
 	float	x_step;
@@ -33,12 +43,10 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 	
 	isomet(&A, fdf_data);
 	isomet(&B, fdf_data);
-	/*----------zoom--------*/
 	A.x = A.x * fdf_data->zoom;
 	A.y = A.y * fdf_data->zoom;
 	B.x = B.x * fdf_data->zoom;
 	B.y = B.y * fdf_data->zoom;
-	/*-------------------------*/
 	x_step = B.x - A.x;
 	y_step = B.y - A.y;
 	if (abs((int)x_step) > abs((int)y_step))
@@ -63,11 +71,11 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 
 void	draw_map(t_fdf *fdf_data)
 {
-	t_point	**point;
 	int x;
 	int y;
+	t_point **point;
 	
-	point = ft_matrix(fdf_data->file);
+	point = ft_matrix(fdf_data);
 	ft_menu(fdf_data);
 	x = 0;
 	while (x < fdf_data->width)
@@ -83,5 +91,6 @@ void	draw_map(t_fdf *fdf_data)
 		}
 		x++;
 	}
+	free(point);
 	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 260, 0);
 }

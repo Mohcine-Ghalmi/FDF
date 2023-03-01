@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 20:05:36 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/01 17:18:59 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,7 @@
 # define RIGHT	124
 # define DOWN	125
 
-# define PAD_1	83
 # define PAD_2	84
-# define PAD_3	85
-# define PAD_4	86
-# define PAD_5	87
-# define PAD_6	88
 # define PAD_7	89
 # define PAD_8	91
 # define PAD_9	92
@@ -44,7 +39,6 @@
 # define ESC    53
 
 # define KEY_Z 6
-# define KEY_C 8
 
 typedef struct point
 {
@@ -76,9 +70,9 @@ typedef struct FDF
 	void	*mlx_image;
 	int	bits_per_pixel;
 	int	size_line;
-}		t_fdf;	
+}		t_fdf;
 
-t_point	**ft_matrix(char *file);
+t_point	**ft_matrix(t_fdf *fdf_data);
 int		get_width(char *file);
 int		get_height(char *file);
 void	ft_mlx_give(t_fdf *fdf_data);
@@ -91,5 +85,6 @@ void    win(t_fdf *data_fdf);
 void	zoom(t_fdf *data_fdf);
 void    defaults(t_fdf *fdf_data);
 void	ft_menu(t_fdf *fdf_data);
+void	err(void);
 
 #endif

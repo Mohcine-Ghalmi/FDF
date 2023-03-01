@@ -6,23 +6,24 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 12:09:34 by mghalmi           #+#    #+#              #
-#    Updated: 2023/02/28 19:44:55 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/03/01 16:22:42 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = FDF
+NAME = fdf
 
-SRCS = get_next_line/*.c libft/*.c 
+SRC = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c libft/ft_atoi.c\
+	  libft/ft_atoi_base.c libft/ft_isprint.c   libft/ft_split.c     libft/ft_toupper.c\
+	  ft_init.c	key.c ft_map_draw.c close_win.c ft_menu.c ft_matrix.c FDF.c
 
-FRAEMWORKS=-framework OpenGL -framework AppKit
+HEADER = FDF.h get_next_line/get_next_line.h libft/libft.h
 
-HEADER = FDF.h get_next_line/*.h libft/*.h
-
+OBJ = $(SRC:c=o)
 
 all : $(NAME)
 
-$(NAME) : $(OBJ)
-	gcc -Wall -Wextra -Werror *.c $(SRC)  -lmlx -framework OpenGL -framework AppKit -o $(NAME)
+$(NAME) : $(OBJ) $(HEADER)
+	gcc -Wall -Wextra -Werror $(OBJ) -o $(NAME) -lmlx -framework OpenGL -framework AppKit
 	
 clean :
 	rm -rfv $(OBJ)

@@ -6,19 +6,18 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 20:00:45 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/01 18:24:08 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FDF.h"
 
-void	isomet(t_point *A,t_fdf *fdf_data)
+void	check(char *file)
 {
-	if (fdf_data->izo == 1)
+	if (!ft_strchr(file, '.'))
 	{
-		A->z *= fdf_data->z_move;
-		A->y = (A->y - A->x) * cos(fdf_data->theta);
-		A->x = (A->y + A->x) * sin(fdf_data->theta) - A->z;
+		write(1, "\033[1;31m  Non valide map\n", 25);
+		exit(1);
 	}
 }
 
@@ -32,11 +31,14 @@ int	main(int argc , char **argv)
 		exit(1);
 	}
 	fdf_data = (t_fdf *)malloc(sizeof(t_fdf));
-	defaults(fdf_data);
-	ft_mlx_give(fdf_data);
-	fdf_data->width = get_width(argv[1]);
-	fdf_data->height = get_height(argv[1]);
+	if (!fdf_data)
+		exit(1);
 	fdf_data->file = argv[1];
+	fdf_data->width = get_width(fdf_data->file);
+	fdf_data->height = get_height(fdf_data->file);
+	defaults(fdf_data);
+	check(fdf_data->file);
+	ft_mlx_give(fdf_data);
 	draw_map(fdf_data);
 	mlx_key_hook(fdf_data->mlx_win, &key, fdf_data);
 	mlx_loop(fdf_data->mlx_ptr);

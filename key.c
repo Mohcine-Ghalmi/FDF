@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:41:39 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/02/28 20:10:45 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/01 16:24:11 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,12 @@
 void    clear(t_fdf *fdf_data)
 {
     mlx_clear_window(fdf_data->mlx_ptr, fdf_data->mlx_win);
-    mlx_destroy_image(fdf_data->mlx_ptr, fdf_data->mlx_image);
-    fdf_data->mlx_image = mlx_new_image(fdf_data->mlx_ptr, fdf_data->win_width, fdf_data->win_height);
+    fdf_data->mlx_image = mlx_new_image(fdf_data->mlx_ptr, 4000, 4000);
     if (!fdf_data->mlx_image)
-		exit(1);
+		err();
     fdf_data->buffer = mlx_get_data_addr(fdf_data->mlx_image, &fdf_data->bits_per_pixel, &fdf_data->size_line, &fdf_data->endian);
     if (!fdf_data->buffer)
-		exit(1);
+		err();
     draw_map(fdf_data);
 }
 
