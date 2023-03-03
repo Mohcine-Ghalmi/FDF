@@ -6,7 +6,7 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 12:09:34 by mghalmi           #+#    #+#              #
-#    Updated: 2023/03/01 16:22:42 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/03/03 16:31:12 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = get_next_line/get_next_line.c get_next_line/get_next_line_utils.c libft/ft
 
 HEADER = FDF.h get_next_line/get_next_line.h libft/libft.h
 
-OBJ = $(SRC:c=o)
+OBJ = $(SRC:.c=.o)
 
 all : $(NAME)
 

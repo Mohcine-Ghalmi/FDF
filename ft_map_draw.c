@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:00:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/01 18:53:43 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 16:53:03 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 void	my_mlx_pixel_put(t_fdf *fdf_data, t_point pt)
 {
 	char	*dst;
-	
+
 	pt.x += fdf_data->x_move;
 	pt.y += fdf_data->y_move;
-	if ((pt.x > 0 && pt.x < fdf_data->win_height) && (pt.y > 0 && pt.y < fdf_data->win_width))
+	if ((pt.x > 0 && pt.x < 1500) && (pt.y > 0 && pt.y < 1500 - 260))
 	{
 		dst = fdf_data->buffer + (((int)pt.x ) * fdf_data->size_line + ((int)pt.y ) * (fdf_data->bits_per_pixel  / 8));
 		*(unsigned int *)dst = fdf_data->color;
@@ -29,10 +29,19 @@ void	isomet(t_point *A,t_fdf *fdf_data)
 {
 	if (fdf_data->izo == 1)
 	{
+		if (A->z != 0)
+				A->z /= 10;
 		A->z *= fdf_data->z_move;
 		A->y = (A->y - A->x) * cos(fdf_data->theta);
 		A->x = (A->y + A->x) * sin(fdf_data->theta) - A->z;
 	}
+}
+
+void	change_point(t_point *A, t_fdf *fdf_data)
+{
+	isomet(A, fdf_data);
+	A->x = A->x * fdf_data->zoom;
+	A->y = A->y * fdf_data->zoom;
 }
 
 void	line(t_point A, t_point B, t_fdf *fdf_data)
@@ -41,12 +50,8 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 	float	y_step;
 	float	max;
 	
-	isomet(&A, fdf_data);
-	isomet(&B, fdf_data);
-	A.x = A.x * fdf_data->zoom;
-	A.y = A.y * fdf_data->zoom;
-	B.x = B.x * fdf_data->zoom;
-	B.y = B.y * fdf_data->zoom;
+	change_point(&A, fdf_data);
+	change_point(&B, fdf_data);
 	x_step = B.x - A.x;
 	y_step = B.y - A.y;
 	if (abs((int)x_step) > abs((int)y_step))
@@ -55,11 +60,10 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 		max = abs((int)y_step);
 	x_step /= max;
 	y_step /= max;
-	if (A.z == 0)
-		fdf_data->color = A.color;
-	else
+	if (A.z != 0)
 		fdf_data->color = B.color;
-
+	else
+		fdf_data->color = A.color;
 	while ((int)max)
 	{
 		my_mlx_pixel_put(fdf_data, A);
@@ -91,6 +95,9 @@ void	draw_map(t_fdf *fdf_data)
 		}
 		x++;
 	}
+	x = 0;
+	while (x < fdf_data->height)
+		free(point[x++]);
 	free(point);
-	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 260, 0);
+	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 300, 0);
 }

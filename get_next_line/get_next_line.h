@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 10:12:03 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/01 13:31:39 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 17:00:36 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 # include <unistd.h>
-# define BUFFER_SIZE 5
+# define BUFFER_SIZE 3000
 
 char	*new_line(int fd, char *static_buffer);
 char	*fixed_line(char *static_buffer);

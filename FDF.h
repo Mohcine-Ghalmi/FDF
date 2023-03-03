@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/30 15:42:47 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/01 18:53:50 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 16:51:48 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef struct point
 	float	x;
 	float	y;
 	float	z;
-	int color;
+	long int color;
 }		t_point;
 
 
@@ -60,7 +60,7 @@ typedef struct FDF
 	int win_width;
 	float	theta;
 	char *file;
-	int color;
+	long int color;
 	int	width;
 	int height;
 	void	*mlx_ptr;

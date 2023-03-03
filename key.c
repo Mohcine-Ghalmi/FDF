@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 16:41:39 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/01 16:24:11 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 14:13:24 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void    clear(t_fdf *fdf_data)
 {
     mlx_clear_window(fdf_data->mlx_ptr, fdf_data->mlx_win);
-    fdf_data->mlx_image = mlx_new_image(fdf_data->mlx_ptr, 4000, 4000);
+    fdf_data->mlx_image = mlx_new_image(fdf_data->mlx_ptr, 1500, 1500);
     if (!fdf_data->mlx_image)
 		err();
     fdf_data->buffer = mlx_get_data_addr(fdf_data->mlx_image, &fdf_data->bits_per_pixel, &fdf_data->size_line, &fdf_data->endian);
@@ -55,9 +55,9 @@ int key(int code, t_fdf *data_fdf)
     if (code == PAD_9)
         data_fdf->theta -= 0.05;
     if (code == PAD_8)
-        data_fdf->z_move += 0.05;
+        data_fdf->z_move += 0.5;
     if (code == PAD_2)
-        data_fdf->z_move -= 0.05;
+        data_fdf->z_move -= 0.5;
     clear(data_fdf);
     return 0;
 }

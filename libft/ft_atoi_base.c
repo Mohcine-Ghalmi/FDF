@@ -6,15 +6,15 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:30:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/01 17:40:32 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 16:49:36 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "libft.h"
 
-int index_hexa(int c)
+long int index_hexa(int c)
 {
-    int i;
+    long int i;
     char    *hexa;
 
     hexa = "0123456789ABCDEF";
@@ -29,11 +29,11 @@ int index_hexa(int c)
     exit(1);
 }
 
-int ft_atoi_base(char *color)
+long int ft_atoi_base(char *color)
 {
     size_t i;
-    int sum;
-    int n;
+    long  int sum;
+    long int n;
     
     i = ft_strlen(color);
     sum = 0;

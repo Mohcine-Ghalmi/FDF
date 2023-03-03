@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 10:12:03 by mghalmi           #+#    #+#             */
-/*   Updated: 2022/11/09 15:49:00 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/02 18:44:25 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,6 @@ char	*fixed_line(char *static_buffer)
 		return (NULL);
 	i = 0;
 	while (static_buffer[i] && static_buffer[i] != '\n')
-	{
-		line[i] = static_buffer[i];
-		i++;
-	}
-	if (static_buffer[i] == '\n')
 	{
 		line[i] = static_buffer[i];
 		i++;

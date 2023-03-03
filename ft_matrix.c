@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/01 18:26:28 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 16:33:53 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,7 @@ void	fill_matrix(t_point **matrix_line, int line_count, char *line)
 		matrix_line[line_count][col].z = ft_atoi(nbrs[col]);
 		find = ft_strchr(nbrs[col], 'x');
 		if (find)
-		{
-			if (ft_atoi_base(find))
-				matrix_line[line_count][col].color = strtol(++find, NULL , 16);
-		}
+			matrix_line[line_count][col].color = ft_atoi_base(find);
 		else
 			if (matrix_line[line_count][col].z != 0)
 				matrix_line[line_count][col].color = 0xff0000;
@@ -92,15 +89,15 @@ t_point	**ft_matrix(t_fdf *fdf_data)
 	int		line_count;
 	char	*line;
 
-	matrix = (t_point **)malloc(fdf_data->height * sizeof(t_point *) + 1);
+	matrix = (t_point **)malloc((fdf_data->height + 1) * sizeof(t_point *));
 	if (!matrix)
 		exit(1);
 	line_count = 0;
 	while (line_count < fdf_data->height)
-		matrix[line_count++] = (t_point *)malloc(fdf_data->width
-				* sizeof(t_point) + 1);
+		matrix[line_count++] = (t_point *)malloc((fdf_data->width)
+				* sizeof(t_point));
 	fd = open(fdf_data->file, O_RDONLY);
-	if (fd <= 0)
+	if (fd <= 2)
 		exit(1);
 	line_count = 0;
 	line = get_next_line(fd);
@@ -111,6 +108,7 @@ t_point	**ft_matrix(t_fdf *fdf_data)
 		line = get_next_line(fd);
 		line_count++;
 	}
+	matrix[line_count] = 0;
 	free(line);
 	close(fd);
 	return (matrix);
