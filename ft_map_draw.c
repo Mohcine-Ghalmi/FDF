@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 15:00:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/03 16:53:03 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 21:20:32 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,13 @@ void	my_mlx_pixel_put(t_fdf *fdf_data, t_point pt)
 	pt.y += fdf_data->y_move;
 	if ((pt.x > 0 && pt.x < 1500) && (pt.y > 0 && pt.y < 1500 - 260))
 	{
-		dst = fdf_data->buffer + (((int)pt.x ) * fdf_data->size_line + ((int)pt.y ) * (fdf_data->bits_per_pixel  / 8));
+		dst = fdf_data->buffer + (((int)pt.x) * fdf_data->size_line
+				+ ((int)pt.y) * (fdf_data->bits_per_pixel / 8));
 		*(unsigned int *)dst = fdf_data->color;
 	}
 }
 
-void	isomet(t_point *A,t_fdf *fdf_data)
+void	isomet(t_point *A, t_fdf *fdf_data)
 {
 	if (fdf_data->izo == 1)
 	{
@@ -49,7 +50,7 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 	float	x_step;
 	float	y_step;
 	float	max;
-	
+
 	change_point(&A, fdf_data);
 	change_point(&B, fdf_data);
 	x_step = B.x - A.x;
@@ -75,10 +76,10 @@ void	line(t_point A, t_point B, t_fdf *fdf_data)
 
 void	draw_map(t_fdf *fdf_data)
 {
-	int x;
-	int y;
-	t_point **point;
-	
+	int		x;
+	int		y;
+	t_point	**point;
+
 	point = ft_matrix(fdf_data);
 	ft_menu(fdf_data);
 	x = 0;
@@ -99,5 +100,5 @@ void	draw_map(t_fdf *fdf_data)
 	while (x < fdf_data->height)
 		free(point[x++]);
 	free(point);
-	mlx_put_image_to_window(fdf_data->mlx_ptr, fdf_data->mlx_win, fdf_data->mlx_image, 300, 0);
+	image_put(fdf_data);
 }
