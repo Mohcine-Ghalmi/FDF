@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/03 21:21:14 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/03 22:00:24 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ void	check(char *file)
 		write(1, "\033[1;31m  Non valide map\n", 25);
 		exit(1);
 	}
+}
+
+int	key_hook(t_fdf *fdf_data)
+{
+	win(fdf_data);
+	return (0);
 }
 
 int	main(int argc, char **argv)
@@ -40,6 +46,7 @@ int	main(int argc, char **argv)
 	ft_mlx_give(fdf_data);
 	draw_map(fdf_data);
 	mlx_key_hook(fdf_data->mlx_win, &key, fdf_data);
+	mlx_hook(fdf_data->mlx_win, 17, 0, key_hook, fdf_data);
 	mlx_loop(fdf_data->mlx_ptr);
 	return (0);
 }
