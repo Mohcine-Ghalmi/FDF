@@ -51,7 +51,7 @@ void	fill_matrix(t_point **matrix_line, int line_count, char *line)
 		matrix_line[line_count][col].z = ft_atoi(nbrs[col]);
 		find = ft_strchr(nbrs[col], 'x');
 		if (find)
-			matrix_line[line_count][col].color = strtol(++find, NULL, 16);
+			matrix_line[line_count][col].color = ft_atoi_base(++find, NULL, 16);
 		else
 		{
 			if (matrix_line[line_count][col].z != 0)
