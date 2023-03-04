@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_map_draw.c                                      :+:      :+:    :+:   */
+/*   ft_map_draw_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 15:00:19 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/04 16:46:22 by mghalmi          ###   ########.fr       */
+/*   Created: 2023/03/04 16:45:34 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/03/04 16:46:17 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ void	draw_map(t_fdf *fdf_data)
 	t_point	**point;
 
 	point = ft_matrix(fdf_data);
+	ft_menu(fdf_data);
 	x = 0;
 	while (x < fdf_data->width)
 	{

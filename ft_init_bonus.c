@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init.c                                          :+:      :+:    :+:   */
+/*   ft_init_bonus.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/24 16:21:48 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/04 16:46:14 by mghalmi          ###   ########.fr       */
+/*   Created: 2023/03/04 16:46:00 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/03/04 16:46:08 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,5 @@ void	ft_mlx_give(t_fdf *fdf_data)
 void	image_put(t_fdf *fdf_data)
 {
 	mlx_put_image_to_window(fdf_data->mlx_ptr,
-		fdf_data->mlx_win, fdf_data->mlx_image, 0, 0);
+		fdf_data->mlx_win, fdf_data->mlx_image, 260, 0);
 }

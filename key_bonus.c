@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   key.c                                              :+:      :+:    :+:   */
+/*   key_bonus.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 16:41:39 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/04 16:45:13 by mghalmi          ###   ########.fr       */
+/*   Created: 2023/03/04 16:44:43 by mghalmi           #+#    #+#             */
+/*   Updated: 2023/03/04 16:44:52 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,34 @@ void	clear(t_fdf *fdf_data)
 	draw_map(fdf_data);
 }
 
+void	pads(int code, t_fdf *data_fdf)
+{
+	if (code == PAD_7)
+		data_fdf->theta += 0.05;
+	if (code == PAD_9)
+		data_fdf->theta -= 0.05;
+	if (code == PAD_8)
+		data_fdf->z_move += 0.5;
+	if (code == PAD_2)
+		data_fdf->z_move -= 0.5;
+}
+
 int	key(int code, t_fdf *data_fdf)
 {
 	if (code == ESC)
 		win(data_fdf);
+	if (code == UP)
+		data_fdf->x_move -= 20;
+	if (code == DOWN)
+		data_fdf->x_move += 20;
+	if (code == LEFT)
+		data_fdf->y_move -= 20;
+	if (code == RIGHT)
+		data_fdf->y_move += 20;
+	if (code == PLUS || code == 24)
+		data_fdf->zoom += 0.5;
+	if (code == MINUS || code == 27)
+		data_fdf->zoom -= 0.5;
 	if (code == KEY_Z)
 	{
 		if (data_fdf->izo == 1)
@@ -36,6 +60,7 @@ int	key(int code, t_fdf *data_fdf)
 		else
 			data_fdf->izo = 1;
 	}
+	pads(code, data_fdf);
 	clear(data_fdf);
 	return (0);
 }
