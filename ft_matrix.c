@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/11 13:16:22 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/03 21:21:23 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/04 16:32:05 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	fill_matrix(t_point **matrix_line, int line_count, char *line)
 		matrix_line[line_count][col].z = ft_atoi(nbrs[col]);
 		find = ft_strchr(nbrs[col], 'x');
 		if (find)
-			matrix_line[line_count][col].color = ft_atoi_base(++find, NULL, 16);
+			matrix_line[line_count][col].color = ft_atoi_base(find);
 		else
 		{
 			if (matrix_line[line_count][col].z != 0)
