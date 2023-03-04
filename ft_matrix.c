@@ -19,8 +19,8 @@ int	get_height(char *file, int *width)
 	char	*line;
 
 	fd = open(file, O_RDONLY);
-	if (fd <= 0)
-		perror("open");
+	if (fd < 0)
+		err();
 	height = 0;
 	line = get_next_line(fd);
 	*width = count_words(line, ' ');
@@ -89,7 +89,7 @@ t_point	**ft_matrix(t_fdf *fdf_data)
 
 	matrix = alloc(fdf_data);
 	fd = open(fdf_data->file, O_RDONLY);
-	if (fd <= 2)
+	if (fd < 2)
 		exit(1);
 	line_count = 0;
 	line = get_next_line(fd);
