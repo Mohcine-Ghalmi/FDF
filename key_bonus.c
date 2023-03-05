@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:44:43 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/04 16:44:52 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/05 17:47:50 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ void	pads(int code, t_fdf *data_fdf)
 	if (code == PAD_9)
 		data_fdf->theta -= 0.05;
 	if (code == PAD_8)
-		data_fdf->z_move += 0.5;
+		data_fdf->z_move += 1.5;
 	if (code == PAD_2)
-		data_fdf->z_move -= 0.5;
+		data_fdf->z_move -= 1.5;
 }
 
 int	key(int code, t_fdf *data_fdf)

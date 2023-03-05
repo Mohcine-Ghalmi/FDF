@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/03 12:38:23 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/03 22:00:24 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/05 17:50:37 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char **argv)
 {
 	t_fdf	*fdf_data;
 
-	if (argc < 2)
+	if (argc != 2)
 	{
 		write(1, "\033[1;31m Usage: ./fdf [map_file]\n", 33);
 		exit(1);
