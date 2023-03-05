@@ -6,7 +6,7 @@
 /*   By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:21:48 by mghalmi           #+#    #+#             */
-/*   Updated: 2023/03/04 16:46:14 by mghalmi          ###   ########.fr       */
+/*   Updated: 2023/03/05 16:22:17 by mghalmi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void	defaults(t_fdf *fdf_data)
 	fdf_data->x_move = fdf_data->win_height / 3;
 	fdf_data->y_move = fdf_data->win_width / 3;
 	fdf_data->z_move = 1;
-	if (fdf_data->height > 100 || fdf_data->width > 100)
+	if (fdf_data->height > 40 || fdf_data->width > 40)
 		fdf_data->zoom = 3;
-	else if (fdf_data->height > 40 || fdf_data->width > 40)
-		fdf_data->zoom = 15;
 	else
 		fdf_data->zoom = 30;
 }

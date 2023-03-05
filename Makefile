@@ -6,7 +6,7 @@
 #    By: mghalmi <mghalmi@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/14 12:09:34 by mghalmi           #+#    #+#              #
-#    Updated: 2023/03/04 16:51:49 by mghalmi          ###   ########.fr        #
+#    Updated: 2023/03/05 16:19:59 by mghalmi          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ $(NAMEB) : $(OBJB) $(HEADER)
 	gcc -Wall -Wextra -Werror $(OBJB) -o $(NAMEB) -lmlx -framework OpenGL -framework AppKit
 
 %.o: %.c $(HEADER)
-	$(CC) -fno-signed-zeros -mtune=intel -Ofast -march=native -fno-trapping-math -Wall -Wextra -Werror  -Imlx -c $< -o $@
+	$(CC) -Wall -Wextra -Werror  -Imlx -c $< -o $@
 	
 clean :
 	rm -rfv $(OBJ) $(OBJB)
